@@ -1,43 +1,26 @@
-import Head from "next/head";
 import React from "react";
-import {AppBar, Box, Toolbar, Typography, Button, IconButton} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import { BaseLayout } from "../src/layout"
+import { makeStyles } from '@material-ui/styles';
+import { Button } from '@mui/material';
+
+const useStyles = makeStyles({
+  root: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    border: 0,
+    borderRadius: 3,
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+  },
+});
 
 export default function Home() {
+ const classes = useStyles();
 
   return (
-    <div>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              News
-            </Typography>
-            <Button color="inherit">Login</Button>
-          </Toolbar>
-        </AppBar>
-      </Box>
-      <Head>
-        <title>User Management</title>
-        <meta name="description" content="User CRUD app" />
-      </Head>
-      <main>
-        <h1>User Management tool</h1>
-        <p>Users List</p>
-      </main>
-
-      <footer>
-        <span>Placeholder for footer</span>
-      </footer>
-    </div>
+    <BaseLayout>
+      <Button className={classes.root}>Example</Button>
+    </BaseLayout>
   );
 }
